@@ -11,7 +11,7 @@ export class AppService {
   }
 
   async getHelloAsync() {
-    const message = await this.client.send({cmd: 'greeting-async'}, 'Progressive Coder');
+    const message = await this.client.send({ cmd: 'greeting-async' }, 'Progressivesdf Coder');
     return message;
   }
 }

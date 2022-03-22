@@ -6,7 +6,7 @@ export class AppController {
 
   @MessagePattern({cmd: 'greeting'})
   getGreetingMessage(name: string): string {
-    return `Hello ${name}`;
+    return `Helloka ${name}`;
   }
 
   @MessagePattern({cmd: 'greeting-async'})
