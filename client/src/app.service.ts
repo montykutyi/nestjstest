@@ -1,8 +1,32 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, OnModuleInit } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 
+function delay(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 @Injectable()
-export class AppService {
+export class AppService implements OnModuleInit {
+
+  async onModuleInit() {
+
+    while (true) {
+      await delay(2000);
+
+      const requests = [];
+
+
+      for (let i = 0; i < 1000; i++) {
+
+        const prom = new Promise(async (res, rej) => {
+          res(await this.getHelloBello());
+        })
+        requests.push(prom);
+      }
+
+      await Promise.all(requests);
+    }
+  }
 
   constructor(@Inject('GREETING_SERVICE') private client: ClientProxy){}
 

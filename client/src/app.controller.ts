@@ -17,6 +17,21 @@ export class AppController {
 
   @Get("/hellobello")
   async getHelloBello() {
-    return this.appService.getHelloBello();
+
+    const requests = [];
+
+
+    for (let i = 0; i < 2; i++) {
+      const prom = new Promise(async (res, rej) => {
+        res(await this.appService.getHelloBello());
+      })
+      requests.push(prom);
+    }
+
+    await Promise.all(requests);
+
+
+    return 11;
+
   }
 }
