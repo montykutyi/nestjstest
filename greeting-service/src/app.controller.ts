@@ -28,11 +28,5 @@ export class AppController {
 
     return (data || []).reduce((a, b) => a + b);
   }
-
-  @EventPattern('book-created')
-  async handleBookCreatedEvent(data: Record<string, unknown>) {
-    console.log(data);
-  }
-
 }
 

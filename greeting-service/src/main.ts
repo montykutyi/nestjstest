@@ -6,10 +6,11 @@ async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     AppModule,
     {
-      transport: Transport.TCP,
+      transport: Transport.REDIS,
       options: {
-        host: '127.0.0.1',
-        port: 8080,
+        url: 'redis://localhost:6379'
+        //host: '127.0.0.1',
+        //port: 8080,
       }
     }
   )
