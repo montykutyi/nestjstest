@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { MessagePattern } from '@nestjs/microservices';
+import { EventPattern, MessagePattern } from '@nestjs/microservices';
 
 @Controller()
 export class AppController {
@@ -13,4 +13,26 @@ export class AppController {
   async getGreetingMessageAysnc(name: string): Promise<string> {
     return `Hello ${name}`;
   }
+
+  @Get()
+  async getHello(): Promise<any> {
+    return "hello from server"
+  }
+
+  count = 0;
+
+  @MessagePattern({ cmd: 'sum' })
+  accumulate(data: number[]): number {
+    this.count++;
+    console.log('Recieved message number ' + this.count);
+
+    return (data || []).reduce((a, b) => a + b);
+  }
+
+  @EventPattern('book-created')
+  async handleBookCreatedEvent(data: Record<string, unknown>) {
+    console.log(data);
+  }
+
 }
+

@@ -14,4 +14,12 @@ export class AppService {
     const message = await this.client.send({ cmd: 'greeting-async' }, 'Progressivesdf Coder');
     return message;
   }
+
+  async getHelloBello(): Promise<any> {
+    const pattern = { cmd: 'sum' };
+    return this.client.send(pattern, [1, 2, 3]).toPromise();
+  }
+
 }
+
+
