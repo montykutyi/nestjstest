@@ -28,5 +28,13 @@ export class AppController {
 
     return (data || []).reduce((a, b) => a + b);
   }
+
+  @MessagePattern({ cmd: 'sub' })
+  sub(data: number[]): number {
+    this.count--;
+    console.log('Recieved message number ' + this.count);
+
+    return (data || []).reduce((a, b) => a + b);
+  }
 }
 

@@ -14,6 +14,6 @@ async function bootstrap() {
       }
     }
   )
-  await app.listen();
+  await app.listen(() => console.log(`server started`));
 }
 bootstrap();

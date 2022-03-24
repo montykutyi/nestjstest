@@ -34,4 +34,24 @@ export class AppController {
     return 11;
 
   }
+
+  @Get("/hellosub")
+  async getHelloSub() {
+
+    const requests = [];
+
+
+    for (let i = 0; i < 2; i++) {
+      const prom = new Promise(async (res, rej) => {
+        res(await this.appService.getHelloSub());
+      })
+      requests.push(prom);
+    }
+
+    await Promise.all(requests);
+
+
+    return 11;
+
+  }
 }
