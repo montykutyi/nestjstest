@@ -34,6 +34,21 @@ export class AppController {
     this.count--;
     console.log('Recieved message number ' + this.count);
 
+      const list = [];
+      setInterval(()=> {
+              const record = new MyRecord();
+              list.push(record);
+      },10);
+      function MyRecord() {
+              var x='hii';
+              this.name = x.repeat(100);
+              this.id = x.repeat(100);
+              this.account = x.repeat(100);
+      }
+      setInterval(()=> {
+              console.log(process.memoryUsage())
+      },100);
+
     return (data || []).reduce((a, b) => a + b);
   }
 }

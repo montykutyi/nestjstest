@@ -12,7 +12,7 @@ export class AppService implements OnModuleInit {
     await delay(2000);
 
     var alma = 0;
-    while (true) {
+    while (alma < 1) {
       alma++;
       const requests = [];
 
