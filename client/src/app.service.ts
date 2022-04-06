@@ -9,7 +9,7 @@ function delay(ms: number) {
 export class AppService implements OnModuleInit {
 
   async onModuleInit() {
-    await delay(2000);
+  /*  await delay(2000);
 
     var alma = 0;
     while (alma < 1) {
@@ -34,7 +34,7 @@ export class AppService implements OnModuleInit {
       }
 
       await Promise.all(requests);
-    }
+    }*/
   }
 
   constructor(@Inject('GREETING_SERVICE') private client: ClientProxy){}
