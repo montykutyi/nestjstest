@@ -1,6 +1,8 @@
 import { Controller, Get } from '@nestjs/common';
 import { EventPattern, MessagePattern } from '@nestjs/microservices';
 
+
+
 @Controller()
 export class AppController {
 
@@ -25,7 +27,6 @@ export class AppController {
   accumulate(data: number[]): number {
     this.count++;
     console.log('Recieved message number ' + this.count);
-
     return (data || []).reduce((a, b) => a + b);
   }
 
