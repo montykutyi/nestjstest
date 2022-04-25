@@ -9,12 +9,12 @@ import { AppService } from './app.service';
       {
         name: 'GREETING_SERVICE',
         transport: Transport.REDIS,
-      options : {
-        url: 'redis://localhost:6379'
-        //host: '127.0.0.1',
-        //port: 8080
+        options : {
+          url: 'redis://192.168.40.109:6379'
+          //host: '127.0.0.1',
+          //port: 8080
+        }
       }
-    }
     ])
   ],
   controllers: [AppController],
